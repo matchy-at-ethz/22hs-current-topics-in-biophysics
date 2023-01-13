@@ -47,7 +47,7 @@
 
 %  + what the general question is that is being addressed. that will include some general context on chromosome conformations and chromatin accessibility. (DONE!)
 %  + how we learn about chromatin conformations (Hi-C etc) (DONE!)
-%  * a discussion of the author's approach, the model, and the results.
+%  + a discussion of the author's approach, the model, and the results.
 %  * what the strength and weaknesses of the model are, what is left unexplained
 %  * What could be done next? What has been done since?
 
@@ -76,12 +76,6 @@ The 3C technology was first introduced in 2002 by Dekker et. al. originally in t
 \subsection{Two Major Classes of Chromosomal Patterns}
 
 Hi-C is capable of capturing the 3D structure of the genome at a resolution of kb level. In the Hi-C contact maps, two major classes of patterns are most evident. The first one is the A/B compartmentalization which shows checkerboard-like patterns \cite{mirny_two_2019}. The A compartment is usually gene-rich, transcriptionally active and accessible (characterized by DNase I sensitivity), and the B compartment is usually the heterochromatin region that is low in expression and has repressive histone marks \cite{denker_second_2016}\cite{wit_decade_2012}. The second one is the Topologically Associating Domains (TADs) which are characterized as continuous regions of mildly (2-4 folds) higher contact frequency than between loci in neighboring TADs \cite{mirny_two_2019}. They usually reside within a single contiguous compartment and don't necessarily exhibit the characteristic "checkerboard" pattern as A/B compartment does \cite{fudenberg_formation_2016}. 50\% of TADs have peaks of interactions at their boundaries, and they are capable of forming dynamic boundaries \cite{rao_3d_2014}. Up until the publishing of this paper, the formation of TADs was still not well understood. Previous works have proposed TADs forming mechanism based on similar monomer attraction \cite{jost_modeling_2014} and supercoiling \cite{benedetti_models_2014}, yet they fail to explain the formation of TADs in a satisfactory manner.
-
-% \subsection{\textit{Cis}-Elements and \textit{Trans}-Factors Known to Involve in Maintaining Chromosomal Domains}
-
-\subsection{CTCF, Cohesin, SMC}
-
-To be finished.
 
 % insert figure 2
 \begin{figure}[htbp]
@@ -193,17 +187,41 @@ The simulation of the alternative hypotheses stress on the importance of the \te
 
 It has been shown in literature that flipping solely the orientation of BEs (to be exact, the proposed molecular BE candidate, CTCFs) can lead to the merging of two TADs.
 
+The authors analyzed cohesin ChIP-seq peaks and found that CTCFs were enriched in exact orientation dependent manner around strongly bound CTCF peaks, suggesting CTCF indeed acts as a BE that impedes loop extrusion in an orientation-dependent manner -- at strong CTCF binding sites, cohesins are enriched only in one direction but not the other. In weak CTCF binding sites, cohesins are enriched in both directions.
 
+% insert figure 8
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/Snipaste_2023-01-13_19-41-04.png}
+  \caption{\textbf{The Orientation Dependent Accumulation of Cohesin.} This figure is part of Figure 6 in \cite{fudenberg_formation_2016}. Fig B shows the theoretical explanation of the orientation-dependent enrichment of cohesin. Fig E shows the experimental data of cohesin ChIP-seq peaks at strong CTCF binding sites.}
+  \label{fig:Exploration of Boundary Elements Properties}
+\end{figure}
+
+Furthermore, with the model at hand, the authors modify the BE permeability and directionality to try to recapitulate the effect of CTCF on TAD boundary. To correctly model and reproduce the experimental data, the authors converted ChIP-seq data for CTCF into BE permeability and directionality parameters with the help of cohesin peak and logistic transformation. According to the simulation and the analysis by the authors, the model to some extent reproduce and predicts the effect of CTCF on TAD boundary, yet agreement along the chromosome was non-uniform. However, the results do reflect that the increased permeability of BEs can lead to the emergence of large, homogeneous TADs, suggesting the importance of BEs in the formation of TADs and further supporting the model.
+
+% insert figure 9
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/Snipaste_2023-01-13_19-45-50.png}
+  \caption{\textbf{Simulation of Changing TAD Boundaries with Different BE Permeability. } This figure is part of Figure 7 in \cite{fudenberg_formation_2016}. LEF processivity is 120 kb (D and E) and 360 kb (F and G).}
+  \label{fig:Simulation of Changing TAD Boundaries with Different BE Permeability}
+\end{figure}
 
 \section{Strengths and Weaknesses of the Paper}
 
 \subsection*{Strengths}
 
+The paper proposed and examined a model for an important 3D chromosomal structure and showed that the model is capable of reproducing the formation of TADs in the simulation. The model is also capable of predicting the effect of BEs on TADs, which is a very important step towards understanding the mechanism of TAD formation.
+
+To the best of my knowledge, this is the first paper that proposed a model for TAD formation with detailed and rigorous simulation as well as predictive power. The model is also very simple and easy to understand, which makes it a very good starting point for further research on TAD formation.
 
 \subsection*{Weaknesses}
 
+Since this is one of the pioneering work, parts of the model still needs refinement and describe. For example, it is likely that the association possibility and dissociation possibility are not homogeneous across the genome. The ChIP-seq data of CTCF enrichment peaks were also not well modelled and reproduced in the simulation.
 
 \section{Future Prospectives}
+
+As is mentioned in the weaknesses, the models can be further refined to incorporate more subtleness in the chromatin conformational change. But the most important future work is to test the model in real biological systems, such as testing the proposed molecular candidate of BEs and LEFs. And in a paper published in 2019 \cite{kim_human_2019}, the loop extruding effect of cohesin has been proved, strongly supporting the model proposed in this paper.
 
 % Bibliography
 \printbibliography
