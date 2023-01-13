@@ -1,0 +1,68 @@
+% the most important part it to explain
+
+%  * what the general question is that is being addressed. that will include some general context on chromosome conformations and chromatin accessibility.
+%  * how we learn about chromatin conformations (Hi-C etc)
+%  * a discussion of the author's approach, the model, and the results.
+%  * what the strength and weaknesses of the model are, what is left unexplained
+%  * What could be done next? What has been done since?
+
+% This discussion will include answers to many of the questions we discussed. You'll usually include some figures from the paper to make your point.
+
+
+%
+\documentclass[11pt]{article}
+\usepackage[a4paper,
+  top=1in,
+  bottom=1in,
+  left=.5in,
+  right=.5in
+]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{kpfonts}
+\usepackage{fancyhdr}
+% use package for referencing figures
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cleveref}
+
+% bibliography with IEEE style
+\usepackage[
+  backend=biber,
+  style=ieee,
+]{biblatex}
+
+\usepackage[skip=1em]{parskip}
+
+\pagestyle{fancy}
+
+\title{\vspace{-2em}\LARGE{}\vspace{-1em}}
+\author{Minghang Li}
+\date{\vspace{-1em}}
+
+\fancyhf{}
+\lhead{Chromosal Organization Through Loop Extrusion}
+\rhead{\today}
+
+\cfoot{\thepage}
+
+\setlength{\parindent}{0ex}
+
+\bibliography{main}
+
+% -- end preamble --
+
+\begin{document}
+
+\maketitle \thispagestyle{fancy}
+
+\bigskip
+\hrule \vspace{1pt}
+\hrule height 1pt
+\bigskip
+
+
+% Bibliography
+\printbibliography
+
+\end{document}
