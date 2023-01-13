@@ -97,7 +97,7 @@ To give out a satisfactory explanation for TAD formation, the authors proposed a
 
 \subsection{Basic Settings of the 1-D Model}
 
-The authors first defined the dynamics of LEFs with BEs. The translocation of LEFs along the chromatin fiber was simulated on a 1D lattice, where each position was characterized by {association (birth) probability, dissociation (death) probability and BE occupancy (stalling probability). The LEF molecule was modelled by "two heads" connected with a linker, analogous to SMC protein complexes. Each head of the LEF occupied one lattice position and cannot be overlapped except for at birth events. At each time-step, each LEF head translocates to the neighboring lattics position in opposite direction until encountering another LEF head or a boundary element (BE). The stalling of one LEF head does not affect the translocation of the other LEF head.
+The authors first defined the dynamics of LEFs with BEs. The translocation of LEFs along the chromatin fiber was simulated on a 1D lattice, where each position was characterized by association (birth) probability, dissociation (death) probability and BE occupancy (stalling probability). The LEF molecule was modelled by "two heads" connected with a linker, analogous to SMC protein complexes. Each head of the LEF occupied one lattice position and cannot be overlapped except for at birth events. At each time-step, each LEF head translocates to the neighboring lattics position in opposite direction until encountering another LEF head or a boundary element (BE). The stalling of one LEF head does not affect the translocation of the other LEF head.
 At each discrete unit of time, a LEF undergoes dissociation with a probability that is equal to the maximum value of the death probability. For the occurrence of birth events, the two heads of the LEF are either initiated on the same lattice location or on neighboring sites (when the site immediately to the right of the selected site is unoccupied) with a probability of 0.5. The dynamics of LEFs were depicted in \cref{fig:LEF dynamics}.
 
 % insert figure 3
@@ -136,8 +136,29 @@ The authors used a measurement called $P(s)$ (a function of genomic distance $s$
   \includegraphics[width=0.8\textwidth]{assets/Snipaste_2023-01-13_17-49-12.png}
   \caption{\textbf{Evaluation of Model.} This figure comes from \cite{fudenberg_formation_2016}.  Experimental $P(s)$ (shaded areas) versus simulated $P(s)$ for the 100 best fitting parameter sets (lines, one per parameter set) within TADs (purple) and between
   TADs (green).}
+  \label{fig: evaluation of model}
+\end{figure}
+
+\subsection{The Effect of Processivity and Separation}
+
+As is shown in \cref{fig:processivity and separation}, the authors evaluated for the best parameters for the model as well as exploring the effect of changing the processivity and separation. The best agreement with Hi-C data is achieved for processivity of 120-240 kb and separation of 120 kb. It also shows that processivity affects the strength of the corner peak, while separation affects the strength of the TAD cliques as well as width of the TAD.
+
+% insert figure 5
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{assets/Snipaste_2023-01-13_18-19-27.png}
+  \caption{\textbf{The Effect of Processivity and Separation.} This figure comes from \cite{fudenberg_formation_2016}. Figure C, D, E, F corresponds to the parameter set c, d, e, f in figure B, respectively.}
   \label{fig:processivity and separation}
 \end{figure}
+
+\subsection{Exploration of Alternative Hypotheses}
+
+\subsubsection*{Investigate TAD formation Via Single Stable Loop}
+
+\subsubsection*{Investigate TAD formation Via Solely Boundary Element Dynamics}
+
+
+\subsection{Expoloration of Boundary Eelments Properties}
 
 \section{Strengths and Weaknesses of the Paper}
 
