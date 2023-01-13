@@ -139,9 +139,15 @@ The authors used a measurement called $P(s)$ (a function of genomic distance $s$
   \label{fig: evaluation of model}
 \end{figure}
 
+\subsection{Proposed Candidates for BEs and LEFs}
+
+It is natural to look for the possible molecular candidates for LEFs and BEs after building a successive model. As is summarized by the authors in the paper, it is highly likely that cohesin is a possible LEF in interphase. Cohesin is a Strutural Maintenance of Chromosomes (SMC) complex that have been proposed to be able to extrude loops of chromatin fiber and recently been proved to be able to move along the chromatin. They are also observed to be enriched at TAD boundaries and corner peaks, and removal of cohesin leads to the loss of TADs.
+
+CCCTC-binding factor (CTCF) is a possible candidate for BEs. Similar to cohesin, CTCFs are also enriched at TAD boundaries and corner peaks, and the depletion of CTCF sleas to similar effect as cohesin depletion. Furthermore, CTCF is known to be able to interact with cohesin, especially in an orientation-dependent manner. More interestingly, inward-oriented CTCF sites are observed to occur at high frequency at TAD boundaries and corner-peaks, which is consistent with the model that CTCF is a BE.
+
 \subsection{The Effect of Processivity and Separation}
 
-As is shown in \cref{fig:processivity and separation}, the authors evaluated for the best parameters for the model as well as exploring the effect of changing the processivity and separation. The best agreement with Hi-C data is achieved for processivity of 120-240 kb and separation of 120 kb. It also shows that processivity affects the strength of the corner peak, while separation affects the strength of the TAD cliques as well as width of the TAD.
+As is shown in \cref{fig:processivity and separation}, the authors evaluated for the best parameters for the model as well as exploring the effect of changing the processivity and separation. The best agreement with Hi-C data is achieved for processivity of 120-240 kb and separation of 120 kb. It also shows that processivity affects the strength of the corner peak, while separation affects the strength of the TAD cliques as well as width of the TAD. The effect of processivity is especially natural since the larger the LEF processivity, the higher the probability of two LEFs to reach the BEs, hence the higher contact probability of the fragments at the end of TADs, resulting in the stronger corner peaks.
 
 % insert figure 5
 \begin{figure}[htbp]
@@ -153,14 +159,49 @@ As is shown in \cref{fig:processivity and separation}, the authors evaluated for
 
 \subsection{Exploration of Alternative Hypotheses}
 
+As is mentioned in the introduction, there are several other plausible hypotheses of interest. To prove the superiority and generality of the model, the authors investigated a few of alternative hypotheses and showed that they more or less failed to faithfully reproduce TADs in the simulation.
+
 \subsubsection*{Investigate TAD formation Via Single Stable Loop}
+
+As is shown in \cref{fig:Investigate TAD formation Via Single Stable Loop}, it is clearly shown that single stable loops are incapable of producing TADs. Conspicuously, the single table loops produce exceedingly strong corner peaks and no intermediate interactions that gives the characteristic cliques in the Hi-C contact map.
+
+% insert figure 6
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/Snipaste_2023-01-13_18-37-34.png}
+  \caption{\textbf{Investigate TAD formation Via Single Stable Loop.} This figure is exactly Figure 4 in \cite{fudenberg_formation_2016}. It shows that single stable loops are incapable of producing TADs.}
+  \label{fig:Investigate TAD formation Via Single Stable Loop}
+\end{figure}
 
 \subsubsection*{Investigate TAD formation Via Solely Boundary Element Dynamics}
 
+The model proposed by the authors do not rely on the direct physical blockade of LEFs by BEs to enable insulation between TADs, instead, it relies on the BEs to regulate the translocation of LEFs. However, it is possible that direct physical insulation of BEs can lead to the formation of TADs. To rule out the possibility that TADs simply result from the existence of bulky objects at boundaries, the authors tested such hypothesis in the simulation. They also investigated the effect of placing stiff chromatin fiber at BE location, which has similar effect as bulky BEs. The dimerization of BEs can also potentially lead to the formation of TADs -- this represents the scenario that proteins are capable of selectively bind specific genomic elements.
 
-\subsection{Expoloration of Boundary Eelments Properties}
+As is shown in \cref{fig:Investigate TAD formation Via Solely Boundary Element Dynamics}, it is very obvious that no TADs are formed at all when BEs are modelled by either bulky objects or stiff chromatin fibers. The direct BE-to-BE mechanism, despite showing some interaction between distal loci, cannot distinguish between chromosomal regions, and result in uniform peaks of contact probability accross all the BE pairs. It also have zero separating effect between TADs, resulting in no characteristic clique shape of TADs at all.
+
+% insert figure 7
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{assets/Snipaste_2023-01-13_18-53-59.png}
+  \caption{\textbf{Investigate TAD formation Via Solely Boundary Element Dynamics.} This figure is part of Figure 5 in \cite{fudenberg_formation_2016}. Fig B models BE as bulky objects, Fig C models BE as stiff chromatin fibers, Fig D models the BE-to-BE TAD formation mechanism.}
+  \label{fig:Investigate TAD formation Via Solely Boundary Element Dynamics}
+\end{figure}
+
+The simulation of the alternative hypotheses stress on the importance of the \textit{cis}-acting manner of LEFs along the chromatin as well as sophisticated interaction between BEs and LEFs.
+
+\subsection{Exploration of Boundary Elements Properties}
+
+It has been shown in literature that flipping solely the orientation of BEs (to be exact, the proposed molecular BE candidate, CTCFs) can lead to the merging of two TADs.
+
+
 
 \section{Strengths and Weaknesses of the Paper}
+
+\subsection*{Strengths}
+
+
+\subsection*{Weaknesses}
+
 
 \section{Future Prospectives}
 
